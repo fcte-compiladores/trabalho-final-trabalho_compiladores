@@ -135,7 +135,20 @@ make
 
 ## Referências
 
-[Adicionar referências utilizadas no desenvolvimento do compilador]
+### Bibliografia Principal
+
+- **Compilers: Principles, Techniques, and Tools** (Livro do Dragão), Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman, 2nd Edition, Addison-Wesley, 2006.
+- **Crafting Interpreters**, Robert Nystrom, 2015-2021. Disponível em: https://craftinginterpreters.com/
+- **Structure and Interpretation of Computer Programs (SICP)**, Gerald Jay Sussman and Hal Abelson, MIT Press. Disponível em: https://web.mit.edu/alexmv/6.037/sicp.pdf
+- **Engineering a Compiler**, Keith D. Cooper & Linda Torczon, 2nd Edition, Morgan Kaufmann, 2011.
+- **Modern Compiler Implementation in C**, Andrew W. Appel, Cambridge University Press, 1997.
+- **The C Programming Language**, Brian W. Kernighan & Dennis M. Ritchie, 2nd Edition, Prentice Hall, 1988.
+- **The Definitive ANTLR 4 Reference**, Terence Parr, Pragmatic Bookshelf, 2013.
+
+### Material Suplementar
+
+- Curso de Python: https://scrimba.com/learn/python
+- Curso de Python no Youtube (pt-BR): https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0
 
 ## Bugs/Limitações/Problemas Conhecidos
 
@@ -150,4 +163,4 @@ make
 - Adicionar otimizações básicas
 - Melhorar mensagens de erro com contexto mais detalhado
 - Expandir suporte para mais construções da linguagem C
-- Adicionar testes unitários abrangentes 
+- Adicionar testes unitários abrangentes
