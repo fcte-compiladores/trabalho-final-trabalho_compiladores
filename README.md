@@ -1,79 +1,153 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Hppw7Zh2)
-# Trabalho Final
+# Compilador C
 
-## Escopo e organização
+## Turma
+- Turma 18h 
 
-O trabalho é de tema livre dentro do escopo da disciplina de compiladores e
-consiste no desenvolvimento de alguma aplicação na área da disciplina (um
-interpretador para uma linguagem simples, compilador, analisadores de código,
-etc.)
+## Integrantes
+- Luiz Henrique Guimarães Soares - 222022144
+- Gabriela Dourado França - 231026821
+- Douglas Wilson Vieira dos Santos - 211030596
+- Gabriel Santos Pinto - 222037675
 
-O trabalho pode ser feito em grupos de até 4 pessoas.
+## Introdução
 
-## Estrutura
+Este projeto implementa um **compilador para a linguagem C** desenvolvido em linguagem C. O compilador implementa as principais etapas de compilação tradicionais:
 
-Os trabalhos devem ser entregues na atividade própria no [github-classrrom](...).
-Cada repositório deve ter uma estrutura parecida com a delineada abaixo:
+- **Análise Léxica**: Tokenização do código fonte
+- **Análise Sintática**: Construção da árvore sintática abstrata (AST)
+- **Análise Semântica**: Verificação de tipos e resolução de símbolos
+- **Preparação para Geração de Código**: Estruturas implementadas para futura geração
 
-* **README:** o arquivo README.md na base do repositório deve descrever os
-  detalhes da implementação do código. O README deve ter algumas seções 
-  obrigatórias:
-  - **Título**: nome do projeto
-  - **Integrantes**: lista com os nomes, matrículas e turma de cada integrante.
-  - **Introdução**: deve detalhar o que o projeto implementou, quais foram as
-    estratégias e algoritmos relevantes. Se o projeto implementa uma linguagem
-    não-comum ou um subconjunto de uma linguagem comum, deve conter alguns
-    exemplos de comandos nesta linguagem, descrendo a sua sintaxe e semântica,
-    quando necessário.
-  - **Instalação**: deve detalhar os passos para instalar as dependências e
-    rodar o código do projeto. Pode ser algo simples como *"Rode
-    `uv run lox hello.lox` para executar o interpretador."*, se a linguagem de
-    implementação permitir este tipo de facilidade.
+O compilador suporta um subconjunto da linguagem C, incluindo:
+- Declarações de variáveis com tipos primitivos (int, char, float, double, etc.)
+- Estruturas de controle (if, while, for)
+- Expressões aritméticas e lógicas
+- Funções
+- Estruturas (struct) e uniões (union)
+- Arrays e ponteiros
 
-    Você pode usar gerenciadores de pacotes específicos de linguagens populares
-    como uv, npm, cargo, etc, containers Docker/Podman, ou `.nix`.
-  - **Exemplos**: o projeto deve conter uma pasta "exemplos" com alguns arquivos
-    na linguagem de programação implementada. Deve conter exemplos com graus
-    variáveis de complexidade. Algo como: hello world, fibonacci, função
-    recursiva, alguma estrutura de dados e para finalizar um algoritmo um pouco
-    mais elaborado como ordenamento de listas, busca binária, etc.
-    
-    Note que isto é apenas um guia da ordem de dificuldade dos problemas.
-    Algumas linguagens sequer permitem a implementação de alguns dos exemplos
-    acima.
-  - **Referências**: descreva as referências que você utilizou para a
-    implementação da linguagem. Faça uma breve descrição do papel de cada
-    referência ou como ela foi usada no projeto. Caso você tenha usado algum 
-    código existente como referência, descreva as suas contribuições originais
-    para o projeto.
-  - **Estrutura do código**: faça uma descrição da estrutura geral do código
-    discutindo os módulos, classes, estruturas de dados ou funções principais. 
-    Explicite onde as etapas tradicionais de compilação (análise léxica, 
-    sintática, semântica, etc) são realizadas, quando relevante.
-  - **Bugs/Limitações/problemas conhecidos**: discuta as limitações do seu
-    projeto e problemas conhecidos e coisas que poderiam ser feitas para
-    melhorá-lo no futuro. Note: considere apenas melhorias incrementais e não
-    melhorias grandes como: "reimplementar tudo em Rust".
-* **Código:** O codigo fonte deve estar presente no repositório principal junto com
-  a declaração das suas dependências. Cada linguagem possui um mecanismo
-  específico para isso, mas seria algo como o arquivo pyproject.toml em Python
-  ou package.json no caso de Javascript.
+### Exemplo de Código Suportado
 
-## Critérios
+```c
+int main() {
+    int x = 10;
+    int y = 20;
+    if (x < y) {
+        return x + y;
+    }
+    return x - y;
+}
+```
 
-Cada trabalho começa com 100% e pode receber penalizações ou bônus de acordo com
-os critérios abaixo:
+## Instalação
 
-- Ausência do README: -50%
-- Instruções de instalação não funcionam: até -20%
-- Referências não atribuídas ou falta de referâncias: -10%
-- Código confuso ou mal organizado: até -15%
-- Falta de clareza em apresentar as técnicas e etapas de compilação: -15%
-- Bugs e limitações sérias na implementação: até -25%
-- Escopo reduzido, ou implementação insuficiente: até 25%
-- Uso de código não atribuído/plágio: até -100%
-- Repositório bem estruturado e organizado: até 10%
-- Linguagem com conceitos originais/interessantes: até +15%
-- Testes unitários: até +15%, dependendo da cobertura
+### Pré-requisitos
+- GCC (GNU Compiler Collection)
+- Make
 
-Após aplicar todos os bônus, a nota é truncada no intervalo 0-100%. 
+### Compilação
+
+1. Clone o repositório
+2. Navegue até a pasta `src`
+3. Execute o comando make:
+
+```bash
+cd src
+make
+```
+
+### Execução
+
+Para compilar um arquivo C:
+
+```bash
+./main arquivo_entrada.c [arquivo_saida]
+```
+
+Exemplo:
+```bash
+./main exemplo.c saida.out
+```
+
+## Exemplos
+
+A pasta `exemplos/` contém diversos programas C que demonstram as funcionalidades suportadas pelo compilador:
+
+### Exemplos Básicos
+- **hello_world.c**: Programa básico "Hello World" 
+- **fibonacci.c**: Implementação recursiva da sequência de Fibonacci
+- **ponteiros.c**: Demonstração de ponteiros e passagem por referência
+
+### Estruturas de Dados
+- **estruturas.c**: Uso de structs, arrays e loops
+  
+### Algoritmos
+- **bubble_sort.c**: Algoritmo de ordenação Bubble Sort
+- **busca_binaria.c**: Implementação recursiva de busca binária
+
+Para testar os exemplos:
+```bash
+cd src
+make
+./main ../exemplos/hello_world.c saida.out
+```
+
+## Estrutura do Código
+
+### Módulos Principais
+
+- **main.c**: Ponto de entrada do programa, processa argumentos da linha de comando
+- **compiler.h/compiler.c**: Interface principal do compilador, coordena as fases
+- **lexer.c**: Implementação da análise léxica (tokenização)
+- **lex_process.c**: Gerenciamento do processo de análise léxica
+- **parser.c**: Implementação da análise sintática (parsing)
+- **node.c**: Manipulação dos nós da árvore sintática abstrata
+- **token.c**: Definições e operações sobre tokens
+- **scope.c**: Gerenciamento de escopos e tabelas de símbolos
+- **symresolver.c**: Resolução de símbolos e análise semântica
+- **expressionable.c**: Tratamento de expressões e precedência de operadores
+- **output.c**: Preparação para saída/geração de código
+
+### Estruturas de Dados Auxiliares
+
+- **helpers/vector.c**: Implementação de vetor dinâmico
+- **helpers/buffer.c**: Gerenciamento de buffers de caracteres
+
+### Etapas de Compilação
+
+1. **Análise Léxica** (lexer.c, lex_process.c): 
+   - Tokenização do código fonte
+   - Identificação de palavras-chave, operadores, símbolos, números e strings
+
+2. **Análise Sintática** (parser.c, node.c):
+   - Construção da árvore sintática abstrata
+   - Verificação da gramática da linguagem
+   - Tratamento de precedência de operadores
+
+3. **Análise Semântica** (scope.c, symresolver.c):
+   - Verificação de tipos
+   - Resolução de símbolos
+   - Gerenciamento de escopos
+
+4. **Preparação para Geração de Código**:
+   - Estruturas definidas para futura implementação
+   - Interface preparada para diferentes backends
+
+## Referências
+
+[Adicionar referências utilizadas no desenvolvimento do compilador]
+
+## Bugs/Limitações/Problemas Conhecidos
+
+- Geração de código não implementada - o compilador apenas realiza as fases de análise
+- Suporte limitado a algumas construções avançadas de C
+- Tratamento de erros pode ser melhorado com mensagens mais descritivas
+- Falta implementação completa de algumas verificações semânticas
+
+### Melhorias Futuras
+
+- Implementar geração de código assembly
+- Adicionar otimizações básicas
+- Melhorar mensagens de erro com contexto mais detalhado
+- Expandir suporte para mais construções da linguagem C
+- Adicionar testes unitários abrangentes 
